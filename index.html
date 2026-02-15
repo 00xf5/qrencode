@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qrencode - QR Code Generator</title>
+    <meta name="description" content="Professional QR code generator">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        input {
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input:focus {
+            outline: 2px solid #000;
+            outline-offset: -2px;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #qrcode {
+            background: #000;
+            padding: 20px;
+        }
+
+        #qrcode img,
+        #qrcode canvas {
+            display: block;
+            max-width: 100%;
+            filter: invert(1);
+        }
+
+        .toast {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 12px;
+            border: 1px solid #000;
+        }
+
+        .toast.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <div class="border-b border-black">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-semibold text-sm mono">qrencode</div>
+            <div class="flex gap-6 text-xs">
+                <a href="#" class="hover:underline">Docs</a>
+                <a href="#" class="hover:underline">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <div class="space-y-6">
+                <div class="space-y-1">
+                    <h1 class="text-2xl font-semibold tracking-tight">QR Code Generator</h1>
+                    <p class="text-sm text-gray-600">Generate QR codes for URLs, text, or any string data.</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="space-y-1.5">
+                        <label class="text-xs font-medium uppercase tracking-wide">Input</label>
+                        <div class="relative">
+                            <input type="text" id="qr-input" placeholder="https://example.com"
+                                class="w-full border border-black px-3 py-2 text-sm mono bg-white">
+                        </div>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button id="generate-btn"
+                            class="flex-1 bg-black text-white px-4 py-2 text-sm font-medium hover:bg-gray-800 transition-colors">
+                            Generate
+                        </button>
+                        <button id="clear-btn"
+                            class="border border-black px-4 py-2 text-sm font-medium hover:bg-gray-100 transition-colors">
+                            Clear
+                        </button>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-200">
+                        <div class="flex items-start gap-3 text-xs text-gray-500">
+                            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                </path>
+                            </svg>
+                            <span>All processing happens locally in your browser. No data is transmitted or
+                                stored.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-black bg-gray-50">
+                <div id="qr-display-container" class="hidden">
+                    <div class="p-6">
+                        <div id="qrcode" class="mx-auto w-fit"></div>
+                    </div>
+                    <div class="border-t border-gray-300 p-4 bg-white space-y-2">
+                        <div class="text-[10px] uppercase tracking-wider text-gray-500 font-medium mb-3">Actions</div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button id="copy-image-btn"
+                                class="border border-gray-300 px-3 py-2 text-xs font-medium hover:bg-gray-50 transition-colors">
+                                Copy
+                            </button>
+                            <button id="copy-embed-btn"
+                                class="border border-gray-300 px-3 py-2 text-xs font-medium hover:bg-gray-50 transition-colors">
+                                Embed
+                            </button>
+                            <button id="download-btn"
+                                class="border border-gray-300 px-3 py-2 text-xs font-medium hover:bg-gray-50 transition-colors">
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="empty-state" class="p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
+                    <svg class="w-12 h-12 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 17h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z">
+                        </path>
+                    </svg>
+                    <p class="text-sm text-gray-400 mono">No QR code generated</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-200">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+                <div>
+                    <h3 class="font-semibold mb-2">Open Source</h3>
+                    <p class="text-gray-600 text-sm">Free to use. No registration, no tracking, no analytics.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">High Quality</h3>
+                    <p class="text-gray-600 text-sm">256x256px output with high error correction level.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-2">Client-Side</h3>
+                    <p class="text-gray-600 text-sm">Everything runs in your browser. No server involved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-gray-200 mt-16">
+        <div class="max-w-5xl mx-auto px-4 py-6 text-xs text-gray-500 flex justify-between items-center">
+            <div>© 2026 qrencode</div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:underline">Privacy</a>
+                <a href="#" class="hover:underline">License</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast mono">Done</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
