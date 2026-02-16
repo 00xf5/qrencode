@@ -31,6 +31,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22black%22/><path d=%22M25 25h20v20h-20zM55 25h20v20h-20zM25 55h20v20h-20zM55 55h10v10h-10zM65 65h10v10h-10z%22 fill=%22white%22/></svg>">
     <style>
         * {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -39,6 +41,17 @@
         body {
             background: #ffffff;
             color: #000000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-svg {
+            width: 24px;
+            height: 24px;
         }
 
         .mono {
@@ -104,7 +117,19 @@
 
     <div class="border-b border-black">
         <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="font-semibold text-sm mono">qrencode</div>
+            <div class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="100" rx="12" fill="black" />
+                    <path d="M25 25H45V45H25V25Z" fill="white" />
+                    <path d="M55 25H75V45H55V25Z" fill="white" />
+                    <path d="M25 55H45V75H25V55Z" fill="white" />
+                    <mask id="path-4-inside-1_1_2" fill="white">
+                        <path d="M55 55H75V75H55V55Z" />
+                    </mask>
+                    <path d="M55 55V75H75V55H55ZM65 65H75V75H65V65ZM55 55H65V65H55V55Z" fill="white" />
+                </svg>
+                <div class="font-semibold text-sm mono tracking-tight">qrencode</div>
+            </div>
             <div class="flex gap-6 text-xs">
                 <a href="#" class="hover:underline">Docs</a>
                 <a href="#" class="hover:underline">GitHub</a>
@@ -215,12 +240,14 @@
                         field above. Our <strong>online qr code generator</strong> will automatically create a
                         high-quality <strong>barcode qr</strong> image that you can then <strong>download</strong> or
                         <strong>copy to clipboard</strong>. This tool is perfect for creating a <strong>whatsapp web qr
-                            code</strong> or a link to your <strong>official swiggy</strong> profile.</p>
+                            code</strong> or a link to your <strong>official swiggy</strong> profile.
+                    </p>
                     <p>Wondering <strong>how to scan a qr code</strong>? Once you have the image, you can use any
                         <strong>qr scanner online</strong> or a mobile device to read the data. Whether you need to
                         <strong>crear código qr</strong> for a business card or <strong>gerar qr code</strong> for a
                         personal project, our <strong>free qr code generator</strong> is the fastest way to get it done
-                        without any registration.</p>
+                        without any registration.
+                    </p>
                 </div>
             </div>
         </div>
