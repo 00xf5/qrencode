@@ -92,4 +92,17 @@ document.addEventListener('DOMContentLoaded', () => {
         qrDisplayContainer.classList.add('hidden');
         emptyState.classList.remove('hidden');
     });
+
+    // Preset keyword handling
+    const keywordCloud = document.getElementById('keyword-cloud');
+    if (keywordCloud) {
+        keywordCloud.addEventListener('click', (e) => {
+            if (e.target.classList.contains('keyword-tag')) {
+                qrInput.value = e.target.textContent;
+                generateQR();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                qrInput.focus();
+            }
+        });
+    }
 });
