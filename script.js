@@ -1,29 +1,74 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const qrInput = document.getElementById('qr-input');
+    const typeNav = document.getElementById('type-nav');
+    const typeForms = document.querySelectorAll('.type-form');
+    const navItems = document.querySelectorAll('.nav-item');
     const generateBtn = document.getElementById('generate-btn');
+    const clearBtn = document.getElementById('clear-btn');
     const qrDisplayContainer = document.getElementById('qr-display-container');
     const qrCodeDiv = document.getElementById('qrcode');
     const emptyState = document.getElementById('empty-state');
-    const copyImageBtn = document.getElementById('copy-image-btn');
-    const copyEmbedBtn = document.getElementById('copy-embed-btn');
-    const downloadBtn = document.getElementById('download-btn');
-    const clearBtn = document.getElementById('clear-btn');
     const toast = document.getElementById('toast');
 
+    let currentType = 'url';
     let qrcode = null;
 
     const showToast = (message) => {
         toast.textContent = message;
         toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    };
+
+    // Tab Switching Logic
+    typeNav.addEventListener('click', (e) => {
+        const btn = e.target.closest('.nav-item');
+        if (!btn) return;
+
+        currentType = btn.dataset.type;
+
+        // Update UI
+        navItems.forEach(item => item.classList.remove('active'));
+        btn.classList.add('active');
+
+        typeForms.forEach(form => form.classList.add('hidden'));
+        document.getElementById(`${currentType}-form`).classList.remove('hidden');
+    });
+
+    const getFormattedText = () => {
+        switch (currentType) {
+            case 'url':
+                return document.getElementById('input-url').value.trim();
+
+            case 'vcard':
+                const name = document.getElementById('vcard-name').value.trim();
+                const phone = document.getElementById('vcard-phone').value.trim();
+                const email = document.getElementById('vcard-email').value.trim();
+                if (!name) return "";
+                return `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`;
+
+            case 'wifi':
+                const ssid = document.getElementById('wifi-ssid').value.trim();
+                const pass = document.getElementById('wifi-pass').value.trim();
+                const security = document.getElementById('wifi-type').value;
+                if (!ssid) return "";
+                return `WIFI:S:${ssid};T:${security};P:${pass};;`;
+
+            case 'crypto':
+                const cryptoType = document.getElementById('crypto-type').value;
+                const address = document.getElementById('crypto-address').value.trim();
+                const amount = document.getElementById('crypto-amount').value;
+                if (!address) return "";
+                return `${cryptoType}:${address}${amount ? `?amount=${amount}` : ""}`;
+
+            default:
+                return "";
+        }
     };
 
     const generateQR = () => {
-        const text = qrInput.value.trim();
+        const text = getFormattedText();
+
         if (!text) {
-            showToast("Please enter some text or a URL");
+            showToast("Please fill in the required fields");
             return;
         }
 
@@ -39,70 +84,51 @@ document.addEventListener('DOMContentLoaded', () => {
             colorLight: "#ffffff",
             correctLevel: QRCode.CorrectLevel.H
         });
+
+        showToast("QR Code Generated");
     };
 
     generateBtn.addEventListener('click', generateQR);
 
-    qrInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') generateQR();
-    });
-
-    copyImageBtn.addEventListener('click', async () => {
-        const canvas = qrCodeDiv.querySelector('canvas');
-        if (!canvas) return showToast("Click generate first");
-
-        try {
-            const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
-            const item = new ClipboardItem({ 'image/png': blob });
-            await navigator.clipboard.write([item]);
-            showToast("Copied to clipboard");
-        } catch (err) {
-            showToast("Failed to copy image");
-        }
-    });
-
-    copyEmbedBtn.addEventListener('click', async () => {
-        const img = qrCodeDiv.querySelector('img');
-        const canvas = qrCodeDiv.querySelector('canvas');
-        const src = (img && img.src && img.src.startsWith('data:')) ? img.src : canvas.toDataURL();
-
-        if (!src) return showToast("Click generate first");
-
-        try {
-            await navigator.clipboard.writeText(`<img src="${src}" alt="QR Code" />`);
-            showToast("Embed code copied");
-        } catch (err) {
-            showToast("Failed to copy");
-        }
-    });
-
-    downloadBtn.addEventListener('click', () => {
-        const canvas = qrCodeDiv.querySelector('canvas');
-        if (!canvas) return showToast("Click generate first");
-
-        const link = document.createElement('a');
-        link.href = canvas.toDataURL("image/png");
-        link.download = `qr-${Date.now()}.png`;
-        link.click();
-    });
-
     clearBtn.addEventListener('click', () => {
-        qrInput.value = '';
-        qrInput.focus();
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => input.value = '');
         qrDisplayContainer.classList.add('hidden');
         emptyState.classList.remove('hidden');
+        qrCodeDiv.innerHTML = '';
     });
 
-    // Preset keyword handling
+    // Handle existing keyword logic from earlier
     const keywordCloud = document.getElementById('keyword-cloud');
     if (keywordCloud) {
         keywordCloud.addEventListener('click', (e) => {
             if (e.target.classList.contains('keyword-tag')) {
-                qrInput.value = e.target.textContent;
+                // Force to URL type for search queries
+                document.querySelector('[data-type="url"]').click();
+                document.getElementById('input-url').value = e.target.textContent;
                 generateQR();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                qrInput.focus();
             }
         });
     }
+
+    // Action buttons (Copy, Download, etc.)
+    document.getElementById('download-btn').addEventListener('click', () => {
+        const canvas = qrCodeDiv.querySelector('canvas');
+        if (!canvas) return;
+        const link = document.createElement('a');
+        link.href = canvas.toDataURL("image/png");
+        link.download = `qr-${currentType}-${Date.now()}.png`;
+        link.click();
+    });
+
+    document.getElementById('copy-image-btn').addEventListener('click', async () => {
+        const canvas = qrCodeDiv.querySelector('canvas');
+        if (!canvas) return;
+        try {
+            const blob = await new Promise(r => canvas.toBlob(r));
+            await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+            showToast("Image copied!");
+        } catch (e) { showToast("Copy failed"); }
+    });
 });

@@ -54,6 +54,38 @@
             height: 24px;
         }
 
+        .nav-item {
+            color: #666;
+            border: 1px solid transparent;
+        }
+
+        .nav-item:hover {
+            color: #000;
+            background: #f9f9f9;
+        }
+
+        .nav-item.active {
+            color: #000;
+            background: #fff;
+            border-color: #000;
+            box-shadow: 2px 2px 0px 0px #000;
+        }
+
+        .action-btn {
+            border: 1px solid #e5e7eb;
+            padding: 8px 0;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background: #f9f9f9;
+            border-color: #000;
+        }
+
         .mono {
             font-family: 'JetBrains Mono', monospace;
         }
@@ -132,89 +164,222 @@
             </div>
             <div class="flex gap-6 text-xs">
                 <a href="#" class="hover:underline">Docs</a>
-                <a href="#" class="hover:underline">GitHub</a>
+                <a href="https://github.com/00xf5/qrencode" class="hover:underline">GitHub</a>
             </div>
         </div>
     </div>
 
-    <div class="max-w-5xl mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-            <div class="space-y-6">
-                <div class="space-y-1">
-                    <h1 class="text-2xl font-semibold tracking-tight">QR Code Generator</h1>
-                    <p class="text-sm text-gray-600">Generate QR codes for URLs, text, or any string data.</p>
+            <!-- Sidebar Navigation -->
+            <div class="lg:col-span-3 space-y-1">
+                <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-4 px-2">Type</div>
+                <nav id="type-nav" class="space-y-1">
+                    <button data-type="url"
+                        class="nav-item active w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-all flex items-center gap-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        URL
+                    </button>
+                    <button data-type="vcard"
+                        class="nav-item w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-all flex items-center gap-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                        </svg>
+                        vCard
+                    </button>
+                    <button data-type="wifi"
+                        class="nav-item w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-all flex items-center gap-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                        </svg>
+                        WiFi
+                    </button>
+                    <button data-type="email"
+                        class="nav-item w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-all flex items-center gap-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        E-mail
+                    </button>
+                    <button data-type="crypto"
+                        class="nav-item w-full text-left px-3 py-2 text-sm font-medium rounded-md transition-all flex items-center gap-3">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Crypto
+                    </button>
+                </nav>
+
+                <div class="pt-8 space-y-2">
+                    <div class="text-[10px] uppercase font-bold tracking-widest text-gray-400 px-2">Customize</div>
+                    <div class="px-2 space-y-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[10px] font-medium text-gray-500">Logo Overlay</label>
+                            <div class="flex items-center gap-2">
+                                <button
+                                    class="w-8 h-8 rounded border border-gray-200 bg-white flex items-center justify-center hover:border-black transition-all">
+                                    <span class="text-xs">+</span>
+                                </button>
+                                <div class="text-[9px] text-gray-400 italic">PNG/SVG support</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="space-y-4">
-                    <div class="space-y-1.5">
-                        <label class="text-xs font-medium uppercase tracking-wide">Input</label>
-                        <div class="relative">
-                            <input type="text" id="qr-input" placeholder="https://example.com"
-                                class="w-full border border-black px-3 py-2 text-sm mono bg-white">
+            <div class="lg:col-span-12 xl:col-span-9 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Content Editor -->
+                <div class="space-y-6">
+                    <div id="form-container" class="space-y-6 min-h-[300px]">
+                        <!-- Forms are injected here via JS -->
+                        <div id="url-form" class="type-form">
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Website URL</label>
+                                <input type="text" id="input-url" placeholder="https://qrencode.pxxl.click"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white focus:ring-0">
+                                <p class="text-[10px] text-gray-400">Direct link to your landing page or social profile.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="vcard-form" class="type-form hidden grid grid-cols-2 gap-4">
+                            <div class="space-y-1.5 col-span-2">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Full Name</label>
+                                <input type="text" id="vcard-name" placeholder="John Doe"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Phone</label>
+                                <input type="tel" id="vcard-phone" placeholder="+1 234 567"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Email</label>
+                                <input type="email" id="vcard-email" placeholder="john@example.com"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                            </div>
+                        </div>
+
+                        <div id="wifi-form" class="type-form hidden space-y-4">
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Network Name (SSID)</label>
+                                <input type="text" id="wifi-ssid" placeholder="Home WiFi"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-1.5">
+                                    <label class="text-xs font-semibold uppercase text-gray-500">Password</label>
+                                    <input type="password" id="wifi-pass" placeholder="••••••••"
+                                        class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-xs font-semibold uppercase text-gray-500">Security</label>
+                                    <select id="wifi-type"
+                                        class="w-full border border-black px-3 py-3 text-sm mono bg-white appearance-none">
+                                        <option value="WPA">WPA/WPA2</option>
+                                        <option value="WEP">WEP</option>
+                                        <option value="nopass">None</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="crypto-form" class="type-form hidden space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-1.5">
+                                    <label class="text-xs font-semibold uppercase text-gray-500">Currency</label>
+                                    <select id="crypto-type"
+                                        class="w-full border border-black px-3 py-3 text-sm mono bg-white appearance-none">
+                                        <option value="bitcoin">Bitcoin</option>
+                                        <option value="ethereum">Ethereum</option>
+                                        <option value="litecoin">Litecoin</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-xs font-semibold uppercase text-gray-500">Amount</label>
+                                    <input type="number" id="crypto-amount" placeholder="0.00" step="any"
+                                        class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                                </div>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Receiver Address</label>
+                                <input type="text" id="crypto-address" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                            </div>
                         </div>
                     </div>
 
                     <div class="flex gap-2">
                         <button id="generate-btn"
-                            class="flex-1 bg-black text-white px-4 py-2 text-sm font-medium hover:bg-gray-800 transition-colors">
-                            Generate
+                            class="flex-1 bg-black text-white px-4 py-3 text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,0.1)] active:shadow-none active:translate-x-[2px] active:translate-y-[2px]">
+                            Generate QR Code
                         </button>
                         <button id="clear-btn"
-                            class="border border-black px-4 py-2 text-sm font-medium hover:bg-gray-100 transition-colors">
-                            Clear
+                            class="border border-black px-6 py-3 text-sm font-bold uppercase tracking-widest hover:bg-gray-100 transition-colors">
+                            Reset
                         </button>
                     </div>
 
-                    <div class="pt-4 border-t border-gray-200">
-                        <div class="flex items-start gap-3 text-xs text-gray-500">
-                            <svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
-                                </path>
-                            </svg>
-                            <span>All processing happens locally in your browser. No data is transmitted or
-                                stored.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border border-black bg-gray-50">
-                <div id="qr-display-container" class="hidden">
-                    <div class="p-6">
-                        <div id="qrcode" class="mx-auto w-fit"></div>
-                    </div>
-                    <div class="border-t border-gray-300 p-4 bg-white space-y-2">
-                        <div class="text-[10px] uppercase tracking-wider text-gray-500 font-medium mb-3">Actions</div>
-                        <div class="grid grid-cols-3 gap-2">
-                            <button id="copy-image-btn"
-                                class="border border-gray-300 px-3 py-2 text-xs font-medium hover:bg-gray-50 transition-colors">
-                                Copy
-                            </button>
-                            <button id="copy-embed-btn"
-                                class="border border-gray-300 px-3 py-2 text-xs font-medium hover:bg-gray-50 transition-colors">
-                                Embed
-                            </button>
-                            <button id="download-btn"
-                                class="border border-gray-300 px-3 py-2 text-xs font-medium hover:bg-gray-50 transition-colors">
-                                Download
-                            </button>
+                    <div class="pt-6 border-t border-gray-100">
+                        <div class="flex items-start gap-4 p-4 bg-blue-50/30 rounded-lg">
+                            <div class="text-blue-600 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <p class="text-[11px] leading-relaxed text-blue-800 italic">
+                                <strong>Privacy First:</strong> Our generator is committed to protecting your data. All
+                                processing happens locally in your browser (no server storage).
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div id="empty-state" class="p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
-                    <svg class="w-12 h-12 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                            d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 17h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z">
-                        </path>
-                    </svg>
-                    <p class="text-sm text-gray-400 mono">No QR code generated</p>
+                <!-- Preview Area -->
+                <div class="space-y-6">
+                    <div
+                        class="border border-black bg-gray-50 flex flex-col h-full rounded-xl overflow-hidden shadow-2xl shadow-black/5">
+                        <div id="qr-display-container" class="hidden flex-1 flex flex-col">
+                            <div class="flex-1 flex items-center justify-center p-8 bg-white">
+                                <div id="qrcode" class="p-6 bg-white border-[12px] border-black rounded-3xl"></div>
+                            </div>
+                            <div class="p-6 bg-white border-t border-gray-100 space-y-4">
+                                <div class="grid grid-cols-3 gap-3">
+                                    <button id="copy-image-btn" class="action-btn">Copy</button>
+                                    <button id="copy-embed-btn" class="action-btn">Embed</button>
+                                    <button id="download-btn"
+                                        class="action-btn bg-black text-white border-black">Download</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="empty-state"
+                            class="flex-1 p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
+                            <div class="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
+                                <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                        d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 17h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Awaiting
+                                Generation</h3>
+                            <p class="text-xs text-gray-400 max-w-[200px]">Fill in the details on the left to create
+                                your professional QR code.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
 
         <div class="mt-16 pt-8 border-t border-gray-200">
