@@ -162,9 +162,15 @@
                 </svg>
                 <div class="font-semibold text-sm mono tracking-tight">qrencode</div>
             </div>
-            <div class="flex gap-6 text-xs">
-                <a href="#" class="hover:underline">Docs</a>
-                <a href="https://github.com/00xf5/qrencode" class="hover:underline">GitHub</a>
+            <div class="flex gap-6 text-xs font-medium">
+                <a href="#guides" class="hover:underline">Guides</a>
+                <a href="https://github.com/00xf5/qrencode" class="flex items-center gap-1 hover:underline">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub
+                </a>
             </div>
         </div>
     </div>
@@ -315,6 +321,24 @@
                                     class="w-full border border-black px-3 py-3 text-sm mono bg-white">
                             </div>
                         </div>
+
+                        <div id="email-form" class="type-form hidden space-y-4">
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Recipient Email</label>
+                                <input type="email" id="email-to" placeholder="hello@example.com"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Subject (Optional)</label>
+                                <input type="text" id="email-subject" placeholder="Inquiry from QR"
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-semibold uppercase text-gray-500">Message Body</label>
+                                <textarea id="email-body" rows="3" placeholder="Hi there, I'd like to learn more..."
+                                    class="w-full border border-black px-3 py-3 text-sm mono bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-inset"></textarea>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="flex gap-2">
@@ -422,176 +446,217 @@
             <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-8 text-center">Popular QR Code
                 Search Queries</h3>
             <div id="keyword-cloud"
-                class="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-4xl mx-auto opacity-60 hover:opacity-100 transition-opacity duration-500">
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">swiggy heart qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">crear código qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr cod</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr generador</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">crear qr gratis</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">hacer qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">leer qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">barcode qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code with dinosaur</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">q r code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">create qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">me qr code generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">générateur qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generate qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">código qr gratis</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">lector qr online</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code scannen</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr lector</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generateur qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code lesen</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generador código qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">gerador qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">генератор qr кодов</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generador de códigos qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generator qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">adobe qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">escáner qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">crea códigos qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr de mi pc</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">how to scan qr codes</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">online qr code generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">free qr generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">escanear codigo qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">online qr generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code generator online</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">creador de qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">whatsapp qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code scan</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr gratis</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr kod</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">générateur de code qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generador de qr gratis</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">créer un qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">whatsapp web qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">gerador de código qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">my qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr creator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generar código qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code erstellen kostenlos</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">me qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">link to qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generator kodów qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">kod qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">lector de qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr scanner online</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code generator adobe</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">whatsapp qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">crear qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">escanear código qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generador qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">url to qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">scanner qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr tiger</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code 掃描</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">ida gv at app qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generar qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">the qr code generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr kod okutma</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">使用 qr 代碼連線 wi-fi windows</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code generieren</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generador de código qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">free qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">monkey qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr maker</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr codes</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr scan</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">make qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">scanner qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code scanner online</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">criar qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code example</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code gratuit</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">whatsapp web qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">code qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code free</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr kodu</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr ofertas</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">microsoft authenticator qr
-                    code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">monkey qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qrcode generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code generator kostenlos</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">how to scan a qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">สร้าง qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code generator free
-                    online</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">scan qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">gerador de qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">make a qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">tạo mã qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">связь с телефоном qr код</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">create qr code free</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">how to make a qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr 코드를 사용하여 wi-fi 연결하기
-                    windows</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code image</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code產生器</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">código qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">canva qr code generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">me qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code for pc</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code maken</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr generator free</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr reader</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">how to create a qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">gerar qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">lector qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">adobe qr code generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code creator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">create a qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">escanear qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr 码生成器</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qrcode monkey</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">codigo qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">link to qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code erstellen</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code reader</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr コードを使用して wi-fi に接続する
-                    windows</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generate qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">generador de qr</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr kodu kullanarak wi-fi'ye
-                    bağlanın windows</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qrcode</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code maker</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">create qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr monkey</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code monkey</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">scan qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">“使用 qr 码连接到 wi-fi”窗口</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">conectar-se ao wi-fi usando código
-                    qr no windows</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">free qr code generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr scanner</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code generator free</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr generator</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">connect to wi-fi using a qr code
-                    windows</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code scanner</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code</span>
-                <span class="keyword-tag text-[11px] text-gray-500 hover:text-black">qr code generator</span>
+                class="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-5xl mx-auto opacity-70 hover:opacity-100 transition-opacity duration-500">
+                <!-- AI Giants -->
+                <span class="keyword-tag text-[12px] font-bold text-blue-600">chat gpt</span>
+                <span class="keyword-tag text-[12px] font-bold text-blue-600">chatgpt</span>
+                <span class="keyword-tag text-[12px] font-bold text-blue-600">gemini</span>
+                <span class="keyword-tag text-[12px] font-bold text-blue-600">gemini ai</span>
+                <span class="keyword-tag text-[11px] text-gray-500">chat</span>
+                <span class="keyword-tag text-[11px] text-gray-500">bing ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">perplexity ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">claude ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai detector</span>
+                <span class="keyword-tag text-[11px] text-gray-400">openai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">copilot ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">grok ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">character ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">google ai studio</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai checker</span>
+                <span class="keyword-tag text-[11px] text-gray-400">chat gpt ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">google ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ia</span>
+                <span class="keyword-tag text-[11px] text-gray-400">blackbox ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">humanize ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">meta ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gamma ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">polybuzz ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">open ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">deepseek ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">best courses for youtube marketing ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">suno ai music</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai chat gpt</span>
+                <span class="keyword-tag text-[11px] text-gray-400">janitor ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">free unfiltered ai image generator</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai chat</span>
+                <span class="keyword-tag text-[11px] text-gray-400">text design generator ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">google gemini ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai revolutionizing medical diagnostics</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai gemini</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai humanizer</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai bot image generator free</span>
+                <span class="keyword-tag text-[11px] text-gray-400">create video of ai modi</span>
+                <span class="keyword-tag text-[11px] text-gray-400">chtagpt open ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">leonardo ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gemini google ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">bing ai writing</span>
+                <span class="keyword-tag text-[11px] text-gray-400">必应 ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">kimi ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">kling ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">lovable ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">manus ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">deep ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">poly ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai studio</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gemini ai google</span>
+                <span class="keyword-tag text-[11px] text-gray-400">generator ai video using instructions</span>
+                <span class="keyword-tag text-[11px] text-gray-400">napkin ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai image generator</span>
+                <span class="keyword-tag text-[11px] text-gray-400">generative ai course hostinger</span>
+                <span class="keyword-tag text-[11px] text-gray-400">humanize ai text</span>
+                <span class="keyword-tag text-[11px] text-gray-400">higgsfield ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">turbo ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai in game development</span>
+                <span class="keyword-tag text-[11px] text-gray-400">suno ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">chatgpt open ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai detector free</span>
+                <span class="keyword-tag text-[11px] text-gray-400">sora ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">talkie ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">magic school ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gauth ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">cursor ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">open ai chat gpt</span>
+                <span class="keyword-tag text-[11px] text-gray-400">astra ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ask ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai studio google</span>
+                <span class="keyword-tag text-[11px] text-gray-400">canva ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">chat gpt open ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">cloud ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">microsoft ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">chat ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">google ai studio官网</span>
+                <span class="keyword-tag text-[11px] text-gray-400">perchance ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">consensus ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">google studio ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gemini ai chat</span>
+                <span class="keyword-tag text-[11px] text-gray-400">whisk ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">invideo ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">heygen ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gpt ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">hammer ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">outlier ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">c ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">humanizer ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">question ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">shopping habits transform with ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">black box ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai video generator</span>
+                <span class="keyword-tag text-[11px] text-gray-400">make video of ai modi</span>
+                <span class="keyword-tag text-[11px] text-gray-400">undetectable ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai copilot</span>
+                <span class="keyword-tag text-[11px] text-gray-400">grammarly ai checker</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gama ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai mode</span>
+                <span class="keyword-tag text-[11px] text-gray-400">spicychat ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">otter ai login</span>
+                <span class="keyword-tag text-[11px] text-gray-400">genspark ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai humanizer free</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gemini ai free</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gizmo ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">claude ai login</span>
+                <span class="keyword-tag text-[11px] text-gray-400">stealth writer ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">elicit ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai generator</span>
+                <span class="keyword-tag text-[11px] text-gray-400">cici ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai checker free</span>
+                <span class="keyword-tag text-[11px] text-gray-400">poe ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">heidi ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">venice ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gemeni ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">flow ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gamma ai ppt</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai dungeon</span>
+                <span class="keyword-tag text-[11px] text-gray-400">what is ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">replit ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">豆包 ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai detector checker</span>
+                <span class="keyword-tag text-[11px] text-gray-400">math ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">dola ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai agent</span>
+                <span class="keyword-tag text-[11px] text-gray-400">remaker ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai connect</span>
+                <span class="keyword-tag text-[11px] text-gray-400">chalkie ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">otter ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">agentic ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">qwen ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">anthropic ai claude constitution</span>
+                <span class="keyword-tag text-[11px] text-gray-400">free ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">claud ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">quantum ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">anthropic ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">gen ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">алиса ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">moltbook ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">use ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">anthropic claude ai</span>
+                <span class="keyword-tag text-[11px] text-gray-400">ai safety researcher quits anthropic</span>
+                <span class="keyword-tag text-[11px] text-gray-400">cisco unveils new ai networking chip</span>
+            </div>
+            <div id="guides" class="mt-24 pt-16 border-t border-black">
+                <h2 class="text-2xl font-black uppercase tracking-tighter mb-12">AI & QR Integration Guides</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+                    <a href="/guides/chatgpt-qr-prompts.html" class="group text-left">
+                        <div
+                            class="aspect-video bg-black rounded-xl mb-4 overflow-hidden flex items-center justify-center p-8 transition-transform group-hover:scale-[1.02]">
+                            <div class="text-white font-mono text-xs opacity-50">#CHATGPT_QR</div>
+                        </div>
+                        <h3 class="font-bold text-base mb-2 group-hover:underline leading-tight">Sharing ChatGPT Prompts
+                            via QR</h3>
+                        <p class="text-[11px] text-gray-500 leading-relaxed text-left">Learn how to encode complex AI
+                            prompts into QR codes for instant sharing and collaboration. Perfect for workshops and team
+                            syncs.</p>
+                    </a>
+                    <a href="/guides/gemini-ai-connectivity.html" class="group text-left">
+                        <div
+                            class="aspect-video border-2 border-black rounded-xl mb-4 overflow-hidden flex items-center justify-center p-8 transition-transform group-hover:scale-[1.02]">
+                            <div class="text-black font-mono text-xs opacity-50">#GEMINI_AI</div>
+                        </div>
+                        <h3 class="font-bold text-base mb-2 group-hover:underline leading-tight">Automating Businesses
+                            with Gemini</h3>
+                        <p class="text-[11px] text-gray-500 leading-relaxed text-left">Connecting Google Gemini AI
+                            agents to physical scan points using qrencode. A technical deep dive into next-gen
+                            automation.</p>
+                    </a>
+                    <a href="/guides/ai-detector-checker.html" class="group text-left">
+                        <div
+                            class="aspect-video bg-gray-100 rounded-xl mb-4 overflow-hidden flex items-center justify-center p-8 transition-transform group-hover:scale-[1.02]">
+                            <div class="text-black font-mono text-xs opacity-50">#AI_VERIFY</div>
+                        </div>
+                        <h3 class="font-bold text-base mb-2 group-hover:underline leading-tight">AI Detector & Checker
+                            Integrity</h3>
+                        <p class="text-[11px] text-gray-500 leading-relaxed text-left">How to use QR codes to provide
+                            immediate physical proof of content integrity using modern AI detection and humanizer tools.
+                        </p>
+                    </a>
+                    <a href="/guides/claude-perplexity-productivity.html" class="group text-left">
+                        <div
+                            class="aspect-video border-2 border-gray-200 rounded-xl mb-4 overflow-hidden flex items-center justify-center p-8 transition-transform group-hover:scale-[1.02]">
+                            <div class="text-black font-mono text-xs opacity-50">#AI_TOOLS</div>
+                        </div>
+                        <h3 class="font-bold text-base mb-2 group-hover:underline leading-tight">Claude & Perplexity
+                            Productivity</h3>
+                        <p class="text-[11px] text-gray-500 leading-relaxed text-left">Streamline your research and
+                            coding workflows by connecting Claude AI and Perplexity AI directly to your physical
+                            workspace.</p>
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <footer class="border-t border-gray-200 mt-16">
-        <div class="max-w-5xl mx-auto px-4 py-6 text-xs text-gray-500 flex justify-between items-center">
-            <div>© 2026 qrencode</div>
-            <div class="flex gap-4">
-                <a href="#" class="hover:underline">Privacy</a>
-                <a href="#" class="hover:underline">License</a>
+        <footer class="border-t border-gray-200 mt-16">
+            <div class="max-w-5xl mx-auto px-4 py-6 text-xs text-gray-500 flex justify-between items-center">
+                <div>© 2026 qrencode</div>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">Privacy</a>
+                    <a href="#" class="hover:underline">License</a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <div id="toast" class="toast mono">Done</div>
+        <div id="toast" class="toast mono">Done</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="script.js?v=1.0.1"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <script src="script.js?v=1.0.1"></script>
 </body>
 
 </html>

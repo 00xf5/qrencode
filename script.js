@@ -59,6 +59,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!address) return "";
                 return `${cryptoType}:${address}${amount ? `?amount=${amount}` : ""}`;
 
+            case 'email':
+                const emailTo = document.getElementById('email-to').value.trim();
+                const emailSub = document.getElementById('email-subject').value.trim();
+                const emailBody = document.getElementById('email-body').value.trim();
+                if (!emailTo) return "";
+                return `MATMSG:TO:${emailTo};SUB:${emailSub};BODY:${emailBody};;`;
+
             default:
                 return "";
         }
@@ -130,5 +137,15 @@ document.addEventListener('DOMContentLoaded', () => {
             await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
             showToast("Image copied!");
         } catch (e) { showToast("Copy failed"); }
+    });
+
+    document.getElementById('copy-embed-btn').addEventListener('click', () => {
+        const canvas = qrCodeDiv.querySelector('canvas');
+        if (!canvas) return;
+        const url = canvas.toDataURL("image/png");
+        const embedCode = `<img src="${url}" alt="QR Code" width="256" height="256">`;
+        navigator.clipboard.writeText(embedCode).then(() => {
+            showToast("Embed code copied!");
+        });
     });
 });
